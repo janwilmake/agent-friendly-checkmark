@@ -16,7 +16,15 @@
 
 # How to check if a website is agent-friendly
 
-- llms.txt / llms-full.txt at root or well-known
-- openapi.json at root or well-known
+- `robots.txt` should be permissive
+- `llms.txt` / `llms-full.txt` at root or well-known (see https://llmstxt.org)
+- `openapi.json` at root or well-known
 - discoverable MCP
-- if there is oauth and/or monetisation, needs dynamic client registration (https://tools.ietf.org/rfc/rfc7591.txt) at `/.well-known/openid_configuration` or `/.well-known/oauth-authorization-server`)
+- machine-friendly auth: if there is oauth and/or monetisation, needs dynamic client registration (https://tools.ietf.org/rfc/rfc7591.txt) at `/.well-known/openid_configuration` or `/.well-known/oauth-authorization-server`
+- machine-friendly payments
+
+# Implementation
+
+The above requirements should all be implemented in a modular way using only Web-Standard Typescript.
+
+This can be distributed as a package "agent-friendly" as well as an endpoint/tool hosted on Cloudflare.
